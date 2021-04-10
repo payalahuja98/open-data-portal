@@ -9,10 +9,10 @@ import Select from 'react-select';
 import { Link } from "react-router-dom";
 
 const typeOptions = [
-  { value: 'Finances', label: 'Finances' },
-  { value: 'Academics', label: 'Academics' },
-  { value: 'Students', label: 'Students' },
-  { value: 'Sports', label: 'Sports' },
+  { value: 'Administrative & Finance', label: 'Administrative & Finance' },
+  { value: 'Education', label: 'Education' },
+  { value: 'Environment', label: 'Environment' },
+  { value: 'Public Safety', label: 'Public Safety' },
 ];
 
 const industryOptions = [
@@ -26,6 +26,11 @@ const sortOptions = [
   {value: 'reverse', label: 'Z-A'},
   {value: 'date', label: 'Date (Newest First)'},
   {value: 'reverse-date', label: 'Date (Oldest First)'}
+]
+
+const fileFormatOptions = [
+  {value: 'csv', label: 'CSV file'},
+  {valie: 'excel', label: 'Excel file'}
 ]
 
 class Datasets extends React.Component {
@@ -148,14 +153,6 @@ class Datasets extends React.Component {
 
     return (
       <div>
-        <div className = "sideBar desktop">
-          <div className="greenBackground">
-            <h1>What's this?</h1>
-            <p>The Stanford Open Data Portal structures and stores university data for public use.
-            Use this page to search for datasets either through the search bar or delimited by the drop-down categories!
-            </p>
-          </div>
-        </div>
         <div id="datasetsAnchor" className="mainContent">
           <div className="datasetFilters">
             <input type="search" id="searchInput" onChange={e => this.searchKey(e)} placeholder="Search by dataset category, description, etc." name="search" />
@@ -206,6 +203,25 @@ class Datasets extends React.Component {
                     placeholder={'All Data Types'}
                     onChange={this.handleSortBy}
                     options={sortOptions}
+                    theme={theme => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary25: '#9FE5D8',
+                        primary: '#11BF9F',
+                      },
+                    })}
+                  />
+                </span>
+              </div>
+              <div className="filter">
+                <label className="marginRight">File Formats</label>
+                <span className="marginRight">
+                  <Select
+                    value={selectedOption}
+                    placeholder={'All File Types'}
+                    onChange={this.handleSortBy}
+                    options={fileFormatOptions}
                     theme={theme => ({
                       ...theme,
                       colors: {

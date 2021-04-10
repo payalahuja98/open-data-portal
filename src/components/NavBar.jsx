@@ -5,10 +5,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './recruitment.css';
+import Button from 'react-bootstrap/Button'
 
 function NavBar() {
   return (
-    <div id="topnav">
+    <div id="nav">
       <Navbar bg="light" collapseOnSelect expand="lg">
         <Navbar.Brand href="/">
           <img
@@ -27,6 +28,7 @@ function NavBar() {
             </NavDropdown>
             <Nav.Link href="#/datasets">Datasets</Nav.Link>
             <Nav.Link href="#/fellowship">Contribute</Nav.Link>
+            <Button>Request Data</Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
