@@ -39,7 +39,7 @@ class App extends Component {
            
           <HashRouter>
             <div>
-              <NavBar />
+              <NavBar/>
               <Switch>
                 <Route exact path='/' component={LandingPage} />
                 <Route exact path='/datasets' component={Datasets} />
@@ -58,7 +58,7 @@ class App extends Component {
                   }}/>
           </BrowserRouter>
         </div>
-        <Footer />
+        <Footer/>
       </div>
     );
   }

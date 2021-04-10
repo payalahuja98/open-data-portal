@@ -19,7 +19,6 @@ export default class LandingPage extends React.Component {
       isLoaded: false,
       items: [],
       articles: [],
-      randomfact: "Stanford University was established in 1891.",
     };
   }
 
@@ -87,27 +86,6 @@ export default class LandingPage extends React.Component {
       })*/
   }
 
-  getRandomFact = () => { // updates random fact displayed
-    var randomfacts = ["Stanford has won 270 overall Olympic medals (139 gold, 73 silver, 58 bronze), as of the 2016 Rio Olympics.", 
-                      "Stanford has 165 overall Olympic medalists, as of the 2016 Rio Olympics",
-                      "Stanford won 27 medals at the 2016 Rio de Janeiro Olympic Games, a school record!", 
-                      "The Cardinal has produced at least one medalist in every Olympics the U.S. has competed in since 1912.",
-                      "There are over 800 (registered) parties yearly on Stanford campus.",
-                      "Over 10,000 students were driven home by 5-SURE in the 2017-2018 school year.",
-                      "Stanford offers over 15,000 courses annually, as of 2020."]
-    var randfact = this.state.randomfact;
-    if (randomfacts.length > 1) {
-      while (randfact === this.state.randomfact) {
-        randfact = randomfacts[Math.floor(Math.random()*randomfacts.length)]
-      }
-    }
-    this.setState({randomfact: randfact}) 
-  }
-
-  getRandomDataset = () => { // gets a random pathname & redirects to a random dataset
-    var randpath = '/#/datasets/' + this.state.items[Math.floor(Math.random()*this.state.items.length)].name
-    window.location.href = (randpath);
-  }
 
   render() {
     function html_entity_decode(message) {
@@ -121,86 +99,8 @@ export default class LandingPage extends React.Component {
       <div className="home">
         <header>
           <div id='info'>
-            <h1>Welcome to the<br/>Stanford Open Data Portal</h1>
-            
-            <div id='lpbuttons'>
-              <Link to="/datasets" className="btnPrimary">Explore data</Link>
-              {/*<a href="#" className="btnTertiary">Get alerts</a>  */}
-
-              <button onClick={this.getRandomDataset} class="btnPrimary" id="randomdataset"> Random Dataset</button>
-            </div>
-
-            <div id="randomfactdiv">
-              <button onClick={this.getRandomFact} type = "button" className="btnPrimary" id="randomfactcontainer">  
-                <p id="randomfact">{this.state.randomfact}</p>
-                <p id="newfact">Click for Another Fun Data Fact!</p> 
-              </button>
-            </div>
           </div>
-          <a href='https://docs.google.com/forms/d/e/1FAIpQLSekpg0-j0vEGCWg9ZM534NdDofMMaJggohJXFv6b1MrGPUYpw/viewform' target="_blank" rel="noopener noreferrer"><Image className="hero" src={heroImage} alt=""/></a>
         </header>
-        
-        <div className="newArticles">
-          <h3>Articles Featuring Open Data</h3>
-          <div className="mini">
-            {this.state.articles.map(function (article) {
-              var names = []
-              for (var i = 0; i < article._embedded.author.length; i++) {
-                names += html_entity_decode(article._embedded.author[i].name);
-              }
-
-              return (
-                <a href={article.link} target="_blank" rel="noopener noreferrer">
-                  <div className="title">
-                    {html_entity_decode(article.title.rendered)}
-                  </div>
-                  <div className="lightTitle">
-                    {names} • {Moment(Date.parse(article.date)).format("LL")}
-                  </div>
-                  <div></div>
-                  <img className="articleImg" style={{objectFit:"cover"}} src={article._embedded['wp:featuredmedia'][0].source_url} alt=""/>
-                </a>
-              )
-            })
-            }
-          </div>
-          {/* <a href="https://www.stanforddaily.com/category/data-vizzes/" className="seeMore" target="_blank" rel="noopener noreferrer">See more</a> */}
-        </div>
-
-        <div className="newDatasets">
-          <h3>Featured Datasets</h3>
-          <div className="mini">
-            {this.state.items.slice(0, 3).map(dataset =>
-              <Link to={{
-                pathname: '/datasets/' + dataset.name,
-                state: {
-                  data: dataset,
-                }
-              }} className="seeMore">
-                <div className="title">
-                {dataset.display_name}
-              </div>
-              <div className="lightTitle">
-                {dataset.tags}
-              </div>
-              </Link>
-            )
-            }
-          </div>
-          <Link to="/datasets" className="seeMore">See more</Link>
-        </div>
-
-        <div className="secondHeader">
-          <div className="column">
-            <img src={MainLogo} alt="Stanford Open Data Project" style={{paddingTop: '3em'}} />
-          </div>
-          <div className="column">
-            <div className="right">
-            <div className="title">The Stanford Open Data Project (SODP) is making data about Stanford University more accessible and transparent. The final version of this site will aggregate data about Stanford University &mdash; such as university finances, student life, and academics &mdash; as well as tools to analyze the data.</div>
-          </div>
-          </div>
-          <div style={{clear:"both"}}></div>
-        </div>
       </div>
     );
   }

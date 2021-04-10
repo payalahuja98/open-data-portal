@@ -8,8 +8,8 @@ import './recruitment.css';
 
 function NavBar() {
   return (
-    <div id="nav">
-      <Navbar collapseOnSelect expand="lg">
+    <div id="topnav">
+      <Navbar bg="light" collapseOnSelect expand="lg">
         <Navbar.Brand href="/">
           <img
             alt="logo"
@@ -20,22 +20,16 @@ function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#/datasets">Datasets</Nav.Link>
-            <Nav.Link href="#/fellowship">Fellowship</Nav.Link>
-            <Nav.Link href="https://datathon.stanford.edu/">SODP Datathon</Nav.Link>
-            <Nav.Link href="#/aboutus">About Us</Nav.Link>
-            <Nav.Link href="#/contribute">Contribute a Dataset</Nav.Link>
-            <NavDropdown title="Related Links">
-              <NavDropdown.Item href="https://www.stanforddaily.com/category/@94305/" target="_blank">Stanford Daily</NavDropdown.Item>
-              <NavDropdown.Item href="https://pitlab.stanford.edu/" target="_blank">PIT Lab</NavDropdown.Item>
-              <NavDropdown.Item href="https://opendatacampus.com/" target="_blank">Open Data Handbook</NavDropdown.Item>
+            <NavDropdown title="About">
+              <NavDropdown.Item href="https://www.stanforddaily.com/category/@94305/" target="_blank">Our Mission</NavDropdown.Item>
+              <NavDropdown.Item href="https://pitlab.stanford.edu/" target="_blank">Ethical Standards</NavDropdown.Item>
+              <NavDropdown.Item href="https://opendatacampus.com/" target="_blank">Data Governance</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="#/datasets">Datasets</Nav.Link>
+            <Nav.Link href="#/fellowship">Contribute</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <a id='recruitment' href='https://docs.google.com/forms/d/e/1FAIpQLSekpg0-j0vEGCWg9ZM534NdDofMMaJggohJXFv6b1MrGPUYpw/viewform' target='_blank' rel="noopener noreferrer">
-        <h2>Interested in data science, promoting open data, or data policy? Apply to be part of the first Stanford Open Datathon! Applications due March 17th at 11:59 PDT!</h2>
-      </a>
     </div>
   );
 }
