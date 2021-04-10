@@ -29,13 +29,13 @@ export default class LandingPage extends React.Component {
           fluid 
         />
         <div class="text-block">
+            <SearchBar
+            
+            />
             <h4>University of Illinois at Urbana-Champaign</h4>
             <p>Open Data Portal</p>
         </div>
         <div class="search">
-        <SearchBar
-          
-        />
         </div>
       </div>
     );
