@@ -1,23 +1,24 @@
 import React from 'react';
 import './styles.css';
-import logoImage from './static/Main Logo@2x.png';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './recruitment.css';
 import Button from 'react-bootstrap/Button'
+import Image from 'react-bootstrap/Image'
+import RequestData from './RequestData.jsx'
+import Logo from "./uiuc_logo.png";
 
 function NavBar() {
   return (
-    <div id="nav">
-      <Navbar bg="light" collapseOnSelect expand="lg">
-        <Navbar.Brand href="/">
-          <img
-            alt="logo"
-            src={logoImage}
-            style={{verticalAlign: 'middle', height:'5em', paddingTop: '.5em'}}
-          />
-        </Navbar.Brand>
+    <div>
+    <div class="navbar">
+      <Navbar collapseOnSelect expand="lg">
+      <Image id='logo'
+        src={Logo}
+        alt="University Logo"
+        fluid 
+    />
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
@@ -27,11 +28,11 @@ function NavBar() {
               <NavDropdown.Item href="https://opendatacampus.com/" target="_blank">Data Governance</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#/datasets">Datasets</Nav.Link>
-            <Nav.Link href="#/fellowship">Contribute</Nav.Link>
-            <Button>Request Data</Button>
+            <Button href="#/fellowship" id="req-button">Request Data</Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+    </div>
     </div>
   );
 }

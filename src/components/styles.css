@@ -99,14 +99,14 @@ nav {
     margin-bottom: 16px;
     padding: 0rem !important;
 }
-.logo {
-    color: var(--new-teal);
-    margin-left: 3px; /* correct slight overhang */
-    font-family: "Libre Baskerville";
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 80px;
+
+#logo{
+    position: relative;
+    width:100px;
+    height: 100px;
+    opacity: 1;
 }
+
 nav div.navbar-collapse a {
     color: var(--main-black) !important;
     text-decoration: none;
@@ -120,7 +120,7 @@ nav .leftNav {
     margin-left: 0;
 }
 nav div.navbar-collapse a:hover {
-    color: var(--new-teal) !important;
+    color: #13294B !important;
     transition: all .2s ease !important;
     -webkit-transition: all .2s ease !important;
 }
@@ -130,21 +130,71 @@ nav .dropdown-item {
   background-color: transparent !important;
 }
 
+#req-button{
+    background-color: white;
+}
+
 /* -----landing page----*/
 img{
+    position: relative;
     opacity:0.5;
 }
+
 .text-block {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: black;
+    bottom: 350px;
+    right: 650px;
+    background-color:#13294B;
     color: white;
+    padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
   }
-
 /* -----datasets list----*/
+.container{
+    display:grid;
+    padding-top: 100px;
+    grid-template-columns: 1fr 1fr;
+}
+.datasets{
+    width: 900px;
+    padding-left: 10px;
+    display:block;
+}
+
+.datasets button{
+    width:60px;
+    height:10px;
+    background-color: gray;
+    font-size: x-small;
+}
+
+.datasets #button2{
+    width:120px;
+    height:10px;
+    background-color: gray;
+    font-size: x-small;
+}
+.categories button {
+    background-color: #13294B; /* Green background */
+    border: 1px; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 150px; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+    margin-bottom: 10px;
+  }
+  
+.categories button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+  
+/* Add a background color on hover */
+.categories button:hover {
+    background-color: #DD3403;
+}
+
 #searchInput {
     background-image: url('static/searchIcon.png'); /* Add a search icon to input */
     background-size: 16px;
@@ -437,6 +487,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     color: var(--main-gray);
 }
 
+/*-----Request Data Page-------*/
+#dropdown-category{
+    background-color: transparent;
+    color:black;
+}
 
 
 /* -----reponsive layouts-----*/

@@ -10,6 +10,7 @@ import PostDataset from './components/PostDataset';
 import AboutUs from './components/AboutUs';
 import Fellowship from './components/Fellowship';
 import Footer from './components/Footer';
+import RequestData from './components/RequestData'
 //import Payment from './components/Payment';
 import NotFound from './components/NotFound';
 import { Helmet } from 'react-helmet';
@@ -20,7 +21,7 @@ class App extends Component {
       <div className="flexWrapper">
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Stanford Open Data Portal</title>
+            <title>University of Illinois Open Data Portal</title>
             <link rel="canonical" href="https://stanfordopendata.org/" />
             <meta name="description" content="Check out our datasets and contribute your own!"/>
 
@@ -47,6 +48,7 @@ class App extends Component {
                 <Route exact path='/aboutus' component={AboutUs} />
                 <Route exact path='/contribute' component={PostDataset} />
                 <Route exact path='/Fellowship' component={Fellowship} />
+                <Route exact path='./RequestData' component={RequestData}/>
                 <Route path="*" component={NotFound} />
               </Switch>
             </div>

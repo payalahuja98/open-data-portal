@@ -2,11 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import './styles.css';
 import Fuse from "fuse.js";
-import locationIcon from './static/locationIcon.png';
-import buildingIcon from './static/buildingIcon.png';
-import dollarIcon from './static/dollarIcon.png';
-import Select from 'react-select';
-import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import { AiOutlineCheckCircle, AiOutlineFileExcel} from 'react-icons/ai';
+import { GrDocumentCsv } from "react-icons/gr";
 
 const typeOptions = [
   { value: 'Administrative & Finance', label: 'Administrative & Finance' },
@@ -152,150 +151,44 @@ class Datasets extends React.Component {
     const { selectedOption } = this.state;
 
     return (
-      <div>
-        <div id="datasetsAnchor" className="mainContent">
-          <div className="datasetFilters">
-            <input type="search" id="searchInput" onChange={e => this.searchKey(e)} placeholder="Search by dataset category, description, etc." name="search" />
-            <div id="filterDropdowns">
-              <div className="filter">
-                <label className="marginRight">Categories</label>
-                <span className="marginRight">
-                  <Select
-                  value={selectedOption} isMulti
-                  placeholder={'All categories'}
-                  onChange={this.handleChange}
-                  options={typeOptions}
-                  theme={theme => ({
-                    ...theme,
-                    colors: {
-                      ...theme.colors,
-                      primary25: '#9FE5D8',
-                      primary: '#11BF9F',
-                    },
-                  })}
-                />
-                </span>
-              </div>
-              <div className="filter">
-                <label className="marginRight">Data Types</label>
-                <span className="marginRight">
-                  <Select
-                    value={selectedOption} isMulti
-                    placeholder={'All Data Types'}
-                    onChange={this.handleChange}
-                    options={industryOptions}
-                    theme={theme => ({
-                      ...theme,
-                      colors: {
-                        ...theme.colors,
-                        primary25: '#9FE5D8',
-                        primary: '#11BF9F',
-                      },
-                    })}
-                  />
-                </span>
-              </div>
-              <div className="filter">
-                <label className="marginRight">Sort By</label>
-                <span className="marginRight">
-                  <Select
-                    value={selectedOption}
-                    placeholder={'All Data Types'}
-                    onChange={this.handleSortBy}
-                    options={sortOptions}
-                    theme={theme => ({
-                      ...theme,
-                      colors: {
-                        ...theme.colors,
-                        primary25: '#9FE5D8',
-                        primary: '#11BF9F',
-                      },
-                    })}
-                  />
-                </span>
-              </div>
-              <div className="filter">
-                <label className="marginRight">File Formats</label>
-                <span className="marginRight">
-                  <Select
-                    value={selectedOption}
-                    placeholder={'All File Types'}
-                    onChange={this.handleSortBy}
-                    options={fileFormatOptions}
-                    theme={theme => ({
-                      ...theme,
-                      colors: {
-                        ...theme.colors,
-                        primary25: '#9FE5D8',
-                        primary: '#11BF9F',
-                      },
-                    })}
-                  />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="lightTitle">{this.state.filteredItems.length} datasets found</div>
-          <ul id="datasetList" className="list">
-            {this.state.filteredItems.map(post => 
-            <div>
-              <Link to={{
-                pathname: '/datasets/' + post.name,
-                state: {
-                  data: post,
-                }
-              }}></Link>
-              <DatasetCard
-                display_name={post.display_name}
-                description={post.description}
-                date={post.create_date}
-                source_url={post.source_url}
-                name={post.name}
-                tag={post.tags}
-                source={post.source}
-              />
-            </div>
-            )}
-          </ul>
-        </div>
-        <div className="clear"></div>
-      </div>);
+      <div class="container">
+      <div class="categories">
+            <Button>Administration and Finance</Button>
+            <Button>Education</Button>
+            <Button>Campus Life</Button>
+            <Button>Environment</Button>
+            <Button>Public Safety</Button>
+            <Button>Health and Human Services</Button>
+      </div>
+      <div class="datasets">
+            <Card>
+                <Card.Title>Degrees Awarded <GrDocumentCsv></GrDocumentCsv> <AiOutlineFileExcel></AiOutlineFileExcel></Card.Title>
+                <Card.Subtitle>Source: University of Illinois System <AiOutlineCheckCircle></AiOutlineCheckCircle></Card.Subtitle>
+                <Card.Text>
+                    The number of degrees awarded by academic year using the federal reporting timeline of July 1 through June 30.
+                </Card.Text>
+                <Button>Gender Binary</Button>
+            </Card>
+        <Card>
+                <Card.Title>Healthcare Clinics <GrDocumentCsv></GrDocumentCsv><AiOutlineFileExcel></AiOutlineFileExcel></Card.Title>
+                <Card.Subtitle>Source: University of Illinois Hospital <AiOutlineCheckCircle></AiOutlineCheckCircle></Card.Subtitle>
+                <Card.Text>
+                    Patient visits for Mile Square Health Clinics.
+                </Card.Text>
+            </Card>
+            <Card>
+                <Card.Title>Financial Aid <GrDocumentCsv></GrDocumentCsv></Card.Title>
+                <Card.Subtitle>Source: University of Illinois System <AiOutlineCheckCircle></AiOutlineCheckCircle></Card.Subtitle>
+                <Card.Text>
+                    Financial aid information.
+                </Card.Text>
+                <Button id="button2">Excludes room and board</Button>
+            </Card>
+      </div>
+      </div>
+    );
   }
 }
 
-function DatasetCard(props) {
-  //var excerpt = props.excerpt.replace(/<\/?[^>]+(>|$)/g, ""); // strip description excerpt of HTML tags
-  return (
-    <div>
-      <li>
-        <Link to={{
-          pathname: "/datasets/" + props.name,
-          state: {
-              data: props,   
-          }
-        }}>
-          <div className="datasetTitle">{props.display_name}</div>
-          <div className="datasetFacts">
-            <span>
-              <img className="icon" src={dollarIcon} alt="" />
-              {props.tag}
-            </span>
-            <span>
-              <img className="icon" src={locationIcon} alt="" />
-              {props.date}
-            </span>
-            <span>
-              <img className="icon" src={buildingIcon} alt="" />
-              {props.source}
-            </span>
-          </div>
-          <div className="datasetInfo">
-            {props.description}
-          </div>
-        </Link>
-      </li>
-    </div>
-  );
-}
 
 export default Datasets;
