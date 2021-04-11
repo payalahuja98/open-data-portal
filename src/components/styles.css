@@ -178,6 +178,11 @@ img{
     display:block;
 }
 
+.datasets .Link{
+    color:#13294B;
+}
+
+
 .datasets button{
     width:60px;
     height:10px;

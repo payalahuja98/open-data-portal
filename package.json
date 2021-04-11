@@ -8,6 +8,7 @@
     "emailjs-com": "^2.3.2",
     "fuse.js": "^3.6.1",
     "gh-pages": "^2.2.0",
+    "icon-with-tooltip": "^1.4.1",
     "jquery": "^3.5.1",
     "lodash": "^4.17.19",
     "moment": "^2.27.0",

@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { AiOutlineCheckCircle, AiOutlineFileExcel} from 'react-icons/ai';
 import { GrDocumentCsv } from "react-icons/gr";
+import IconWithTooltip from "icon-with-tooltip";
 
 const typeOptions = [
   { value: 'Administrative & Finance', label: 'Administrative & Finance' },
@@ -162,27 +163,102 @@ class Datasets extends React.Component {
       </div>
       <div class="datasets">
             <Card>
-                <Card.Title>Degrees Awarded <GrDocumentCsv></GrDocumentCsv> <AiOutlineFileExcel></AiOutlineFileExcel></Card.Title>
-                <Card.Subtitle>Source: University of Illinois System <AiOutlineCheckCircle></AiOutlineCheckCircle></Card.Subtitle>
+                <Card.Title>
+                  <Card.Link href="https://www.uillinois.edu/cms/one.aspx?pageId=687138">
+                  Degrees Awarded 
+                  </Card.Link>
+                  <GrDocumentCsv></GrDocumentCsv> <AiOutlineFileExcel></AiOutlineFileExcel>
+                  </Card.Title>
+                <Card.Subtitle>Source: University of Illinois System <IconWithTooltip
+                    Icon={AiOutlineCheckCircle}
+                    text="Verified Source"
+                  /></Card.Subtitle>
+                  <Card.Subtitle>License: Public Domain (CC0 1.0) <IconWithTooltip
+                    Icon={AiOutlineCheckCircle}
+                    text="Verified"
+                  /></Card.Subtitle>
                 <Card.Text>
                     The number of degrees awarded by academic year using the federal reporting timeline of July 1 through June 30.
                 </Card.Text>
-                <Button>Gender Binary</Button>
+                <Card.Text>
+                Size: 56.3 KB, 7 variables
+                </Card.Text>
+                <Card.Text>
+                    **The U.S. Department of Education racial/ethnic reporting categories. These were revised starting in the Fall 2010 term.**
+                </Card.Text>
             </Card>
         <Card>
-                <Card.Title>Healthcare Clinics <GrDocumentCsv></GrDocumentCsv><AiOutlineFileExcel></AiOutlineFileExcel></Card.Title>
-                <Card.Subtitle>Source: University of Illinois Hospital <AiOutlineCheckCircle></AiOutlineCheckCircle></Card.Subtitle>
+                <Card.Title>
+                  <Card.Link href="https://www.uillinois.edu/cms/one.aspx?pageId=385008">
+                  Healthcare Clinics 
+                  </Card.Link>
+                  <GrDocumentCsv></GrDocumentCsv><AiOutlineFileExcel></AiOutlineFileExcel>
+                  </Card.Title>
+                <Card.Subtitle>Source: University of Illinois Hospital <IconWithTooltip
+                    Icon={AiOutlineCheckCircle}
+                    text="Verified Source"
+                  /></Card.Subtitle>
+                  <Card.Subtitle>License: Public Domain (CC0 1.0) <IconWithTooltip
+                    Icon={AiOutlineCheckCircle}
+                    text="Verified"
+                  /></Card.Subtitle>
                 <Card.Text>
-                    Patient visits for Mile Square Health Clinics.
+                  Patient visits for Mile Square Health Clinics.
+                </Card.Text>
+                <Card.Text>
+                  Size: 38.5 KB, 10 variables
+                </Card.Text>
+                <Card.Text>
+                **These centers focus on addressing health concerns of underserved, urban populations.**
                 </Card.Text>
             </Card>
             <Card>
-                <Card.Title>Financial Aid <GrDocumentCsv></GrDocumentCsv></Card.Title>
-                <Card.Subtitle>Source: University of Illinois System <AiOutlineCheckCircle></AiOutlineCheckCircle></Card.Subtitle>
+                <Card.Title>
+                  <Card.Link href="https://www.kaggle.com/trolukovich/uiuc-sports-event-dataset">
+                  Sports Events
+                  </Card.Link>
+                  <GrDocumentCsv></GrDocumentCsv><AiOutlineFileExcel></AiOutlineFileExcel>
+                  </Card.Title>
+                <Card.Subtitle>Source: Student</Card.Subtitle>
+                <Card.Subtitle>License: Public Domain (CC0 1.0) <IconWithTooltip
+                    Icon={AiOutlineCheckCircle}
+                    text="Verified"
+                  /></Card.Subtitle>
+                <Card.Text>
+                  Images of various University sporting events.
+                </Card.Text>
+                <Card.Text>
+                  Size: 478 MB, 8 variables
+                </Card.Text>
+                <Card.Text>
+                **Source not verified. Double-check accuracy.**
+                </Card.Text>
+            </Card>
+            <Card>
+                <Card.Title>
+                <Card.Link href="https://www.uillinois.edu/cms/one.aspx?pageId=1420917">
+                Financial Aid <GrDocumentCsv></GrDocumentCsv>
+                </Card.Link>
+                </Card.Title>
+                <Card.Subtitle>Source: University of Illinois System 
+                <IconWithTooltip
+                    Icon={AiOutlineCheckCircle}
+                    text="Verified Source"
+                  />
+                  </Card.Subtitle>
+                  <Card.Subtitle>License: Public Domain (CC0 1.0) <IconWithTooltip
+                    Icon={AiOutlineCheckCircle}
+                    text="Verified"
+                  /></Card.Subtitle>
                 <Card.Text>
                     Financial aid information.
                 </Card.Text>
-                <Button id="button2">Excludes room and board</Button>
+                <Card.Text>
+                  Size: 182 KB, 15 variables
+                </Card.Text>
+                <Card.Text>
+                  **This dataset does not include information on loans, employment, and room and board.**
+                </Card.Text>
             </Card>
       </div>
       </div>

@@ -14,6 +14,7 @@ import RequestData from './components/RequestData'
 //import Payment from './components/Payment';
 import NotFound from './components/NotFound';
 import { Helmet } from 'react-helmet';
+import OurMission from './components/OurMission'
 
 class App extends Component {
   render() {
@@ -49,6 +50,7 @@ class App extends Component {
                 <Route exact path='/contribute' component={PostDataset} />
                 <Route exact path='/Fellowship' component={Fellowship} />
                 <Route exact path='./RequestData' component={RequestData}/>
+                <Route exact path='./OurMission' component={OurMission}></Route>
                 <Route path="*" component={NotFound} />
               </Switch>
             </div>
