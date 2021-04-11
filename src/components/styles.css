@@ -141,16 +141,29 @@ img{
     opacity:0.5;
 }
 
+#heading{
+    padding-left: 20px;
+    font-family: Source Sans Pro, sans-serif;
+}
+
+.carousel-caption h3{
+    color:white;
+}
+
+.carousel-caption p{
+    color:white;
+}
+
 .text-block {
-    position: absolute;
-    bottom: 350px;
-    right: 650px;
+    position: relative;
     background-color:#13294B;
     color: white;
     font-family: Source Sans Pro, sans-serif;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 10px;
+    top:50px;
   }
 /* -----datasets list----*/
 .container{
@@ -502,7 +515,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     padding-left:100px;
 }
 
-#img{
+#request-img{
     opacity:0.8;
     height:400px;
     width:800px;

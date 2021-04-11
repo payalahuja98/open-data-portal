@@ -19,6 +19,10 @@ function NavBar() {
         alt="University Logo"
         fluid 
     />
+        <div id="heading">
+        <h2>University of Illinois at Urbana-Champaign
+        <h4>Open Data Portal</h4></h2>
+        </div>
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">

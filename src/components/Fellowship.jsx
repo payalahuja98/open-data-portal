@@ -10,7 +10,7 @@ function Fellowship() {
   return (
     <div className="request-container">
     <div>
-    <Image id='img'
+    <Image id='request-img'
         src={RequestImg}
         alt="University Logo"
         fluid 
